@@ -17,6 +17,8 @@ A Python-based service for validating and cross-referencing EC (European Communi
 ## Introduction
 The EC CAS Validation Service is designed to help users validate chemical identifiers and retrieve detailed information based on a dataset of over 107,000 entries. This service can identify if a given identifier is valid, determine its type (EC or CAS), and provide associated data such as paired identifiers, material names, and the availability of Material Safety Data Sheets (MSDS).
 
+For detailed documentation, please refer to the [Pager Documentation](https://equinox-cost-01c.notion.site/EC-CAS-Validation-Service-22263ba624694704b269c4c88b3597ab?pvs=4).
+
 ## Features
 - **Identifier Validation**: Verify if an identifier conforms to EC or CAS number formats.
 - **Data Retrieval**: Fetch paired identifiers and additional information from the dataset.
@@ -32,7 +34,7 @@ The EC CAS Validation Service is designed to help users validate chemical identi
 ### Steps
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/USERNAME/REPOSITORY_NAME.git
+   git clone https://github.com/shireen-t/EC-CAS-validation-service.git
    cd REPOSITORY_NAME
 
 2. **Install Dependencies**
