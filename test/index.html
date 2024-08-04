@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CAS-EC</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 30px;
+            }
+            .container{
+                max-width: 600px;
+                margin: 20px;
+            }
+            .input-group{
+                margin-bottom: 20px;
+            }
+            .input-group input[type="text"]{
+                width: 100%;
+                padding: 8px;
+                font-size: 16px;
+            }
+            .input-group button{
+                padding: 10px 20px;
+                background-color: darkgray;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .input-group button:hover{
+                background-color: rgb(148, 168, 188);
+            }
+            .result{
+                margin-top: 20px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+        <body>
+            <div class="container">
+                <h2>EC CAS Convert</h2>
+                <div class="input-group">
+                    <label for="number">Enter Number (EC or CAS): </label>
+                    <input type="text" id="number" name="number" placeholder="Enter number...">
+                </div>
+                <div class="input-group">
+                    <button onclick="getOtherNumber()">Submit</button>
+                </div>
+                <div class="result" id="result"></div>
+            </div>
+
+            <script>
+                function getOtherNumber(){
+                    var number = document.getElementById('number')
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'http://localhost:500/api/get_other_number/' + number, true);
+                    xhr.setRequestHeader('Content-type', 'application/json');
+                    xhr.onload = function(){
+                        if (xhr.status === 200){
+                            var response = JSON.parse(xhr.responseText);
+                            var resultDiv = document.getElementById('result');
+                            if (response.status === 'success'){
+                                resultDiv.innerHTML = 'Response: ' + response.other_number;
+                            }
+                            else{
+                                resultDiv.innerHTML = 'Error: ' + response.message;
+                            }
+                        }
+                        else{
+                            console.log('Request failed')
+                        }
+                    };
+                    xhr.send();
+                }
+            </script>
+
+        </body>
+</html>
