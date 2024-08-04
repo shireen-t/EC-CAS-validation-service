@@ -35,7 +35,7 @@ For detailed documentation, please refer to the [Pager Documentation](https://eq
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/shireen-t/EC-CAS-validation-service.git
-   cd REPOSITORY_NAME
+   cd EC-CAS-validation-service
 
 2. **Install Dependencies**
    ```bash
