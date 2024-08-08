@@ -15,7 +15,7 @@ def insert_data_into_db(csv_file):
         
         cursor = connection.cursor()
 
-        with open(csv_file, 'r') as infile:
+        with open(csv_file, mode='r', encoding='utf-8', errors='replace') as infile:
             reader = csv.reader(infile)
             row_count = 0
             for row in reader:
@@ -39,4 +39,4 @@ def insert_data_into_db(csv_file):
             print("MySQL connection closed")
 
 # Example usage
-insert_data_into_db('ECCAS.csv')
+insert_data_into_db('new_ECCAS.csv')
